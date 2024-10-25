@@ -10,7 +10,7 @@ mv build/slinky /usr/local/bin/
 ```
 ### Servis oluşturalım
 ```
-export WARDEN_PORT="19"" >> $HOME/.bash_profile
+echo "export W_PORT="119"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 ```
