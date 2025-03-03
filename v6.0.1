@@ -1,0 +1,48 @@
+## Güncelleme bloğu öncesi
+
+```bash
+cd $HOME
+wget https://github.com/warden-protocol/wardenprotocol/releases/download/v0.6.1/wardend-0.6.1-linux-amd64 -O $HOME/wardend
+chmod +x wardend
+```
+
+```bash
+mkdir -p $HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin
+mv $HOME/wardend $HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin
+```
+
+#### Versiyon kontrol
+
+```bash
+$HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin/wardend version
+```
+
+## Güncelleme bloğu sonrası
+
+```bash
+sudo systemctl stop wardend
+cd $HOME
+wget https://github.com/warden-protocol/wardenprotocol/releases/download/v0.6.1/wardend-0.6.1-linux-amd64 -O $HOME/wardend
+chmod +x wardend
+```
+
+```bash
+mkdir -p $HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin
+mv $HOME/wardend $HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin
+```
+
+```bash
+sudo ln -sfn $HOME/.warden/cosmovisor/upgrades/v054-to-v060 $HOME/.warden/cosmovisor/current
+sudo ln -sfn $HOME/.warden/cosmovisor/current/bin/wardend /usr/local/bin/wardend
+```
+
+```bash
+sudo systemctl restart wardend
+sudo journalctl -fu wardend -o cat
+```
+
+### Versiyon kontrol
+
+```bash
+$HOME/.warden/cosmovisor/upgrades/v054-to-v060/bin/wardend version
+```
