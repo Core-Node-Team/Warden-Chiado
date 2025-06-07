@@ -129,7 +129,7 @@ fi
 
 ### 🚧 Port ayarı
 ```
-echo "export WARDEN_PORT="19"" >> $HOME/.bash_profile
+echo 'export WARDEN_PORT="19"' >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 ```
